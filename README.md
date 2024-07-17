@@ -18,12 +18,10 @@ At Domotz we are always striving to expand our tech stack but as specified in th
 In this challenge you are free to use any of the above but sumissions in Go and Rust are also accepted
 
 ### The Task
-We have provided you with two JSON files that contain information about assets it two formats. Both files contain information about an Asset's "Name", "Model", and "IP Address" but in different naming conventions and formats:
+We have provided you with two JSON files that contain information about Assets, both of which should contain an Asset's "Name", "Model", and "IP Address" but different naming conventions and formats:
 * `Name` (Represented by 'name', 'name_snmp', 'asset-name')
 * `Model` (Represented by 'model', 'asset-model')
 * `IP Address` (Represented by 'ip_address', 'ipv4', 'ip-address')
-
-Note that their format is different and the json paths inside the two files for the above fields are intentionally different
 
 In this repository you can find two sample data files:
 * [`assets_1.json`](/assets_1.json).
