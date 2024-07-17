@@ -30,7 +30,8 @@ In this repository you can find two sample data files:
 ##### Challenge Requirements
 1. Create a web appication. This must be able to do the following steps
     1. Create a webpage that displays a table with the assets "Name, IP Address, Model" based on the contents in [`assets_1.json`](/assets_1.json). and [`assets_2.json`](/assets_2.json).
-    2. The user should be presented an input field of free text and a submit button that will perform a matching with the assets data in the above two json files based on "Name", "Model" or "IP Address"
+    2. The user should be presented an input field of free text and a submit button that will perform a matching with the assets' data fields in the above two json files based on the "Name", "Model" or "IP Address"
+        The result of the submit button should display all three fields of the matched asset or "No Asset Found" in case it has failed to match anything
     
 2. The system should be able to support:
     1. Larger sets of data (eg 10k+ assets)
