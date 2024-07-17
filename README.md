@@ -1,4 +1,4 @@
-# The "Device Matcher" Interview Task
+# The "Asset Matcher" Interview Task
 Domotz is looking for a talented, committed, and enthusiastic software engineer to take a pivotal role in expanding our product to greater heights.
 
 To help us evaluate new talent, we have created this take-home interview question that should take you no more than a few hours.
