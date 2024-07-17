@@ -52,4 +52,20 @@ This task is aimed to evaluate your backend skills so do not worry about the UX 
 If you have any questions regarding requirements, do not hesitate to email your contact at Domotz for clarification.
 
 ### Installation and Running the solution
-... TODO
+
+1. Requirements:
+
+```
+python3.8+
+virtualenv
+```
+2. Running
+   
+To run the project do:
+
+```shell
+git clone git@github.com:nirabo/device_matcher.git && cd device_matcher
+virtualenv .venv -p python3.11
+cd app && uvicorn main:app --host 0.0.0.0 --port 8000
+# Access the API documentation: `http://0.0.0.0:8000/docs`
+```
