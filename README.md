@@ -53,9 +53,10 @@ If you have any questions regarding requirements, do not hesitate to email your 
 
 ### Installation and Running the solution
 
-1. Requirements:
+1. System Requirements:
 
 ```
+git
 python3.8+
 virtualenv
 ```
@@ -64,8 +65,19 @@ virtualenv
 To run the project do:
 
 ```shell
+MY_PYTHON_VERSION="3.11"
+PORT=8000
+HOST=0.0.0.0
 git clone git@github.com:nirabo/device_matcher.git && cd device_matcher
-virtualenv .venv -p python3.11
-cd app && uvicorn main:app --host 0.0.0.0 --port 8000
+virtualenv .venv -p python${MY_PYTHON_VERSION}
+pip install -r requirements.txt
+cd app && uvicorn main:app --host ${HOST} --port ${PORT}
 # Access the API documentation: `http://0.0.0.0:8000/docs`
+```
+
+3. Testing
+
+```shell
+pip install -r requirements.dev.txt
+pytest app/tests/
 ```

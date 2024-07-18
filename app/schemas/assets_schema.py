@@ -1,29 +1,13 @@
-from pydantic import BaseModel, Field, AliasChoices
+from pydantic import BaseModel
 
 
 class AssetBaseSchema(BaseModel):
     """
     Schema for temporary or used for transient purposes.
     """
-
-    name: str = Field(
-        validation_alias=AliasChoices(
-            "name",
-            "asset_name"
-        )
-    )
-    ip_address: str = Field(
-        validation_alias=AliasChoices(
-            'ip-address', 
-            'ipv4',
-        )
-    )
-    model: str = Field(
-        validation_alias=AliasChoices(
-            "model",
-            "asset-model"
-        )
-    )
+    name: str
+    ip_address: str
+    model: str
 
 class AssetCreateSchema(AssetBaseSchema): 
     """
