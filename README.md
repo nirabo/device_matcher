@@ -70,10 +70,14 @@ git clone git@github.com:nirabo/device_matcher.git && cd device_matcher
 virtualenv .venv -p python${MY_PYTHON_VERSION}
 pip install -r requirements.txt
 cd app && uvicorn main:app --host ${HOST} --port ${PORT}
-# Access the API documentation: `http://0.0.0.0:8000/docs`
 ```
 
-3. Testing
+Access the default OpenAPIv3+ documentation page at [Documentation](http://0.0.0.0:8000/docs)
+
+Access the simple UI as per assignment at [Assets UI Page](http://localhost:8000/static/index.html)
+
+
+1. Testing
 
 ```shell
 pip install -r requirements.dev.txt
