@@ -62,8 +62,6 @@ virtualenv
 ```
 2. Running
    
-To run the project do:
-
 ```shell
 MY_PYTHON_VERSION="3.11"
 PORT=8000
