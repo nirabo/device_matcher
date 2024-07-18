@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Asset Search</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+        tr:hover {background-color: #f5f5f5;}
+        .warning {
+            color: red;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Asset Search</h1>
+    <form id="search-form">
+        <input type="text" id="search-input" placeholder="Search by name, model, or IP address">
+        <button type="submit">Submit</button>
+    </form>
+    <div id="warning" class="warning"></div>
+    <div id="error" class="error"></div>
+    <table id="assets-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Model</th>
+                <th>IP Address</th>
+            </tr>
+        </thead>
+        <tbody id="assets-tbody">
+        </tbody>
+    </table>
+    <script>
+        const searchForm = document.getElementById('search-form');
+        const searchInput = document.getElementById('search-input');
+        const warningDiv = document.getElementById('warning');
+        const errorDiv = document.getElementById('error');
+        const assetsTbody = document.getElementById('assets-tbody');
+
+        searchForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            let query = searchInput.value.trim();
+            query = query.toLowerCase();
+
+            if (query !== searchInput.value.trim().toLowerCase()) {
+                warningDiv.textContent = 'Warning: Your search query has been cleaned up.';
+            } else {
+                warningDiv.textContent = '';
+            }
+
+            const response = await fetch(`/unstructured_assets/by_value/?query=${query}`);
+            if (response.status === 404) {
+                errorDiv.textContent = 'Asset not found';
+                assetsTbody.innerHTML = '';
+            } else {
+                errorDiv.textContent = '';
+                const assets = await response.json();
+                assetsTbody.innerHTML = '';
+                assets.forEach(asset => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${asset.name}</td>
+                        <td>${asset.model}</td>
+                        <td>${asset.ip_address}</td>
+                    `;
+                    assetsTbody.appendChild(row);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -40,10 +40,21 @@ def match_obj(obj, mapping, value) -> dict:
     to see if it exists in the object and if its corresponding value matches the input value. If so, the entire
     object is returned. If no match is found, an empty dictionary is returned.
 
-    TODO: We enforce case ignorance (shall be checked with stakeholders)
+    TODO: LYPE: We enforce string-casting and case ignorance (shall be checked with stakeholders)
     """
     for kmap in mapping:
-        if kmap in obj and value.lower() == obj[kmap].lower():
+        if kmap in obj and str(value).lower() == str(obj[kmap]).lower():
+            return obj
+    return {}
+
+def match_obj_by_val(obj, val) -> dict:
+    """
+    Takes an asset object and attempts to match any of it's keys to `val`
+
+    TODO: LYPE: We enforce string-casting and case ignorance (shall be checked with stakeholders)
+    """
+    for k,v in obj.items():
+        if str(val).lower() == str(v).lower():
             return obj
     return {}
 
